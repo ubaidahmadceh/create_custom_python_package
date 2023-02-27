@@ -1,0 +1,17 @@
+# this command will create .tar only
+python setup.py sdist
+# this will create .whl and .tar both , .whl is a shorter and fastest way to install. So, it's better to use it
+python setup.py sdist bdist_wheel
+
+# to upload on pypi , you need twine
+pip install twine
+
+# command to upload to the pypi test repository 
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+# command to upload to the pypi test repository 
+# it will install package from test pypi
+pip install --index-url https://test.pypi.org/simple/ package_name
+
+# command to upload to the pypi repository
+twine upload dist/*
+pip install package_name
